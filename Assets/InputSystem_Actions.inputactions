@@ -16,13 +16,22 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Aim",
-                    "type": "Value",
-                    "id": "e97b346d-9b34-4c7c-8a74-faa68a665788",
-                    "expectedControlType": "Axis",
+                    "name": "AimLeft",
+                    "type": "Button",
+                    "id": "0ca2d070-9254-4fa8-8506-81b9ac6cd76d",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AimRight",
+                    "type": "Button",
+                    "id": "665672be-ad19-4cc8-acda-1a82e23c189a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -38,37 +47,26 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "28935e86-00d8-4a33-8107-7422bcb703a4",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Aim",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "85422129-05ce-4378-8c7a-8496dac76b16",
+                    "name": "",
+                    "id": "49c8d815-4055-4c6f-b163-bf8667279e9b",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
+                    "action": "AimLeft",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "positive",
-                    "id": "21cff7dd-4c51-4dfb-926b-abc0da5cb12a",
+                    "name": "",
+                    "id": "999e245c-e60d-49f7-b049-cb9e886f1dee",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Aim",
+                    "action": "AimRight",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         },
