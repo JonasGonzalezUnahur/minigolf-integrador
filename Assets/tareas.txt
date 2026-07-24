@@ -1,0 +1,5 @@
+playerPrefs (class)
+inputManager (class)
+stateMachine (interface)
+bolaJugador (class)
+turnSystem (class)
