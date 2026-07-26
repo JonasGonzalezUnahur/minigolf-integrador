@@ -226,13 +226,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: playerBall
       objectReference: {fileID: 0}
+    - target: {fileID: 8169720968517813183, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
+      propertyPath: _transform
+      value: 
+      objectReference: {fileID: 1524027737}
+    - target: {fileID: 8169720968517813183, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
+      propertyPath: shootStrentgth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8780480137571641646, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.096
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780480137571641646, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.24000001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780480137571641646, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -271,6 +279,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
+--- !u!4 &1524027737 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8780480137571641646, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
+  m_PrefabInstance: {fileID: 1014343739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

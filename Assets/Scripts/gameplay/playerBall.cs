@@ -6,9 +6,19 @@ using UnityEngine.InputSystem;
 
 public class playerBall : MonoBehaviour
 {
-    public InputActionAsset inputs;
+    [Header("Components")]
+    public Rigidbody2D rb2d;
+    public GameObject reticle;
+    public SpriteRenderer ballSprite;
 
-    private InputAction input_shoot;
+    [Header("Inputs")]
+    public InputActionAsset inputs;
+    private InputAction inputShoot;
+    private InputAction inputAimLeft;
+    private InputAction inputAimRight;
+
+    [Header("Properties")]
+    public float power;
 
     private void OnEnable()
     {
@@ -17,14 +27,41 @@ public class playerBall : MonoBehaviour
 
     private void Awake()
     {
-        input_shoot = InputSystem.actions.FindAction("Shoot");
+        inputShoot = InputSystem.actions.FindAction("Shoot");
+        inputAimLeft = InputSystem.actions.FindAction("AimLeft");
+        inputAimRight = InputSystem.actions.FindAction("AimRight");
     }
 
     private void Update()
     {
-        if (input_shoot.IsPressed())
+        aimBall();
+        if (inputShoot.WasPressedThisFrame())
         {
-            Debug.Log("a");
+            shootBall();
         }
     }
+
+    private void shootBall()
+    {
+        Vector3 target = reticle.GetComponentInChildren<SpriteRenderer>().transform.position;
+        target = target - transform.position;
+        Debug.Log(target);
+        rb2d.AddForce(target * power);
+    }
+
+    private void aimBall()
+    {
+        if (inputAimLeft.IsPressed() && !inputAimRight.IsPressed())
+        {
+            Vector3 newRotation = new Vector3(0, 0, 50);
+            reticle.transform.Rotate(newRotation * Time.deltaTime);
+        } else if (!inputAimLeft.IsPressed() && inputAimRight.IsPressed())
+        {
+            Vector3 newRotation = new Vector3(0, 0, -50);
+            reticle.transform.Rotate(newRotation * Time.deltaTime);
+        }
+        
+    }
+
+ 
 }
