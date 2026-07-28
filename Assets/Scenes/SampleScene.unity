@@ -226,6 +226,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: playerBall
       objectReference: {fileID: 0}
+    - target: {fileID: 4202057250438290759, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645155941468859389, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169720968517813183, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
+      propertyPath: basePower
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8169720968517813183, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
       propertyPath: _transform
       value: 
@@ -233,6 +245,10 @@ PrefabInstance:
     - target: {fileID: 8169720968517813183, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
       propertyPath: shootStrentgth
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169720968517813183, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
+      propertyPath: inputShoot.m_Name
+      value: Input Shoot
       objectReference: {fileID: 0}
     - target: {fileID: 8780480137571641646, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
       propertyPath: m_LocalPosition.x

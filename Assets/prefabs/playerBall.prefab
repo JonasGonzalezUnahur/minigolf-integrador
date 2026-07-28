@@ -99,7 +99,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2494199901908340326
 Transform:
   m_ObjectHideFlags: 0
@@ -168,7 +168,17 @@ MonoBehaviour:
   reticle: {fileID: 3972900159683787800}
   ballSprite: {fileID: 4598288069124153926}
   inputs: {fileID: -944628639613478452, guid: 887a2adcb89a32848bef1852ca64b8c3, type: 3}
-  power: 5
+  inputShoot:
+    m_Name: Input Shoot
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e7c853da-512e-4a08-aa69-519ce97d440b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  charge: 0
+  basePower: 20
 --- !u!58 &228752006319996356
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,7 +227,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
