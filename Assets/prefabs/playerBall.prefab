@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4202057250438290759}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.51458913, y: 0, z: 0, w: 0.8574369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -151,7 +151,7 @@ Transform:
   - {fileID: 858271572328371915}
   - {fileID: 2494199901908340326}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 61.94, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8169720968517813183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 4645155941468859389}
   reticle: {fileID: 3972900159683787800}
-  ballSprite: {fileID: 4598288069124153926}
+  ballSprite: {fileID: 6400649046039730385}
   inputs: {fileID: -944628639613478452, guid: 887a2adcb89a32848bef1852ca64b8c3, type: 3}
   inputShoot:
     m_Name: Input Shoot
@@ -250,7 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858271572328371915}
-  - component: {fileID: 4598288069124153926}
+  - component: {fileID: 6400649046039730385}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -273,7 +273,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8780480137571641646}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4598288069124153926
+--- !u!212 &6400649046039730385
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

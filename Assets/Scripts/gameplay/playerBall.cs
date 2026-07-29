@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class playerBall : MonoBehaviour
@@ -21,6 +22,10 @@ public class playerBall : MonoBehaviour
     [Header("Properties")]
     public float charge = 1;
     public float basePower = 50;
+    public float playerNmr = 0;
+
+    [Header("Events)")]
+    public UnityEvent ballStopped;
 
     private void Awake()
     {
