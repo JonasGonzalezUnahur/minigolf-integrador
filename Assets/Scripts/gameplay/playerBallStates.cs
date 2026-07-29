@@ -106,7 +106,7 @@ public class FiredState : IState
 
         if (timer <= 0)
         {
-            playerBall.stateMachine.ChangeState(new TurnoffState(playerBall));
+            playerBall.EventBallStopped.Invoke();
         }
         
     }

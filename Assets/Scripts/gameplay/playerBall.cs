@@ -22,15 +22,15 @@ public class playerBall : MonoBehaviour
     [Header("Properties")]
     public float charge = 1;
     public float basePower = 50;
-    public float playerNmr = 0;
+    public int playerNmr = 0;
 
     [Header("Events)")]
-    public UnityEvent ballStopped;
+    public UnityEvent EventBallStopped;
 
     private void Awake()
     {
         stateMachine = new StateMachine();
-        stateMachine.ChangeState(new AimingState(this));
+        //stateMachine.ChangeState(new AimingState(this));
 
         inputShoot = InputSystem.actions.FindAction("Shoot");
         inputAimLeft = InputSystem.actions.FindAction("AimLeft");
