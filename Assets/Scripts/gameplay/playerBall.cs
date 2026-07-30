@@ -24,7 +24,12 @@ public class playerBall : MonoBehaviour
     public float basePower = 50;
     public int playerNmr = 0;
 
-    [Header("Events)")]
+    [Header("Gameplay")]
+    public Vector2 lastPosition;
+    public int shots = 0;
+    public int totalShots = 0;
+
+    [Header("Events")]
     public UnityEvent EventBallStopped;
 
     private void Awake()

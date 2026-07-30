@@ -101,12 +101,12 @@ public class FiredState : IState
         if (playerBall.rb2d.velocity.x == 0f && playerBall.rb2d.velocity.y == 0)
         {
             timer -= 1 * Time.deltaTime;
-            //Debug.Log(timer);
         }
 
         if (timer <= 0)
         {
             playerBall.EventBallStopped.Invoke();
+            // if (piso esta bien) { nuevo lastPosition} si no { mover a last position}
         }
         
     }
