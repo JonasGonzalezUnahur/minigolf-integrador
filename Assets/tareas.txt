@@ -1,3 +1,4 @@
-stateMachine (interface)
-bolaJugador (class)
-turnSystem (class)
+playerBall score
+Course 1
+courseInfo.cs
+Hole
