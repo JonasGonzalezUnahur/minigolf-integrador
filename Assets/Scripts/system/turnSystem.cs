@@ -22,7 +22,7 @@ public class turnSystem : MonoBehaviour
         {
             currentPlayerTurn += 1;
             if (currentPlayerTurn > playerList.Count) { currentPlayerTurn = 1; }
-            for (int i = currentPlayerTurn; !playerList[currentPlayerTurn - 1].GetComponent<playerBall>().finished; i++) //va la siguente jugador que esta activo
+            for (int i = currentPlayerTurn; playerList[currentPlayerTurn - 1].GetComponent<playerBall>().finished; i++) //va la siguente jugador que esta activo
             {
                 currentPlayerTurn = i;
                 if (i + 1 > playerList.Count) { i = 0; } //evita que la condicion de la iteracion de error
