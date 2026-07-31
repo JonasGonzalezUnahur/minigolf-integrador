@@ -93,7 +93,7 @@ public class FiredState : IState
     public void Enter()
     {
         playerBall.ShootBall();
-        timer = 3.1f;
+        timer = 2.1f;
     }
 
     public void Tick()

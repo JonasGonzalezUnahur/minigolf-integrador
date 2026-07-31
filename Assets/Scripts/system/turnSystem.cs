@@ -15,13 +15,14 @@ public class turnSystem : MonoBehaviour
         currentPlayer = playerList[currentPlayerTurn - 1].GetComponent<playerBall>(); //resto 1 al int porque el index de una lista empieza en 0
         currentPlayer.stateMachine.ChangeState(new TurnoffState(currentPlayer));
         currentPlayerTurn += 1;
-        if (currentPlayerTurn > playerList.Count)
+        if (currentPlayerTurn > playerList.Count) { currentPlayerTurn = 1; }
+        for (int i = currentPlayerTurn ; !playerList[currentPlayerTurn - 1].activeSelf; i++) //va la siguente jugador que esta activo
         {
-            currentPlayerTurn = 1;
+            currentPlayerTurn = i;
+            if (i + 1 > playerList.Count) { i = 0; } //evita que la condicion de la iteracion de error
         }
         nextPlayer = playerList[currentPlayerTurn - 1].GetComponent<playerBall>();
         nextPlayer.stateMachine.ChangeState(new AimingState(nextPlayer));
-
     }
 
     public void ResetTurnOrder()
