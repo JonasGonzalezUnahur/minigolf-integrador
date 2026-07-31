@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class turnSystem : MonoBehaviour
 {
@@ -8,21 +9,31 @@ public class turnSystem : MonoBehaviour
     public List<GameObject> playerList = new List<GameObject>();
     public int currentPlayerTurn;
 
+    [Header("Events")]
+    public UnityEvent allPlayersDone;
+
     public void GoToNextPlayer()
     {
         playerBall currentPlayer;
         playerBall nextPlayer;
         currentPlayer = playerList[currentPlayerTurn - 1].GetComponent<playerBall>(); //resto 1 al int porque el index de una lista empieza en 0
         currentPlayer.stateMachine.ChangeState(new TurnoffState(currentPlayer));
-        currentPlayerTurn += 1;
-        if (currentPlayerTurn > playerList.Count) { currentPlayerTurn = 1; }
-        for (int i = currentPlayerTurn ; !playerList[currentPlayerTurn - 1].activeSelf; i++) //va la siguente jugador que esta activo
+        if (playerList.Exists(x => !x.GetComponent<playerBall>().finished)) //al menos un jugador no termino
         {
-            currentPlayerTurn = i;
-            if (i + 1 > playerList.Count) { i = 0; } //evita que la condicion de la iteracion de error
+            currentPlayerTurn += 1;
+            if (currentPlayerTurn > playerList.Count) { currentPlayerTurn = 1; }
+            for (int i = currentPlayerTurn; !playerList[currentPlayerTurn - 1].GetComponent<playerBall>().finished; i++) //va la siguente jugador que esta activo
+            {
+                currentPlayerTurn = i;
+                if (i + 1 > playerList.Count) { i = 0; } //evita que la condicion de la iteracion de error
+            }
+            nextPlayer = playerList[currentPlayerTurn - 1].GetComponent<playerBall>();
+            nextPlayer.stateMachine.ChangeState(new AimingState(nextPlayer));
+        } else
+        {
+            allPlayersDone.Invoke();
+            Debug.Log("done");
         }
-        nextPlayer = playerList[currentPlayerTurn - 1].GetComponent<playerBall>();
-        nextPlayer.stateMachine.ChangeState(new AimingState(nextPlayer));
     }
 
     public void ResetTurnOrder()

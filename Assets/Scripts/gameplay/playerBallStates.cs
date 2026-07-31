@@ -101,6 +101,7 @@ public class FiredState : IState
         if (playerBall.rb2d.velocity.x == 0f && playerBall.rb2d.velocity.y == 0)
         {
             timer -= 1 * Time.deltaTime;
+            Debug.Log("fired timer");
         }
 
         if (timer <= 0)

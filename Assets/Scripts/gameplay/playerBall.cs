@@ -23,6 +23,7 @@ public class playerBall : MonoBehaviour
     public float charge = 1;
     public float basePower = 50;
     public int playerNmr = 0;
+    public bool finished = false;
 
     [Header("Gameplay")]
     public Vector2 lastPosition;
@@ -91,5 +92,17 @@ public class playerBall : MonoBehaviour
                 reverse = false;
             }
         }
+    }
+
+    public void EnterHole()
+    {
+        if (!finished)
+        {
+            rb2d.velocity = new Vector2(0, 0);
+            rb2d.Sleep();
+            ballSprite.enabled = false;
+            finished = true;
+        }
+
     }
 }
