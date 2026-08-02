@@ -23,12 +23,13 @@ public class playerBall : MonoBehaviour
     public float charge = 1;
     public float basePower = 50;
     public int playerNmr = 0;
-    public bool finished = false;
 
     [Header("Gameplay")]
     public Vector2 lastPosition;
     public int shots = 0;
     public int totalShots = 0;
+    public bool inPlay = false;
+    public bool finished = false;
 
     [Header("Events")]
     public UnityEvent EventBallStopped;
@@ -41,6 +42,10 @@ public class playerBall : MonoBehaviour
         inputShoot = InputSystem.actions.FindAction("Shoot");
         inputAimLeft = InputSystem.actions.FindAction("AimLeft");
         inputAimRight = InputSystem.actions.FindAction("AimRight");
+
+        rb2d.Sleep();
+        ballSprite.enabled = false;
+        inPlay = false;
     }
 
     private void Start()
@@ -59,6 +64,8 @@ public class playerBall : MonoBehaviour
         angle = angle - transform.position;
         angle = angle * basePower;
         rb2d.AddForce(angle * charge);
+        shots += 1;
+        totalShots += 1;
     }
 
     public void AimBall()
@@ -104,5 +111,13 @@ public class playerBall : MonoBehaviour
             finished = true;
         }
 
+    }
+
+    public void EnterPlay(Vector3 startPos)
+    {
+        rb2d.WakeUp();
+        ballSprite.enabled = true;
+        transform.position = new Vector2(startPos.x, startPos.y);
+        inPlay = true;
     }
 }

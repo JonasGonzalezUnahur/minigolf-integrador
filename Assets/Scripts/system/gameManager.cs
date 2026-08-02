@@ -8,13 +8,24 @@ public class gameManager : MonoBehaviour
     public int playerCount = 1;
     public GameObject playerPrefab;
 
+    [Header("Level Info")]
+    public Vector2 levelStartPos;
+
     [Header("Additional Scripts")]
     public turnSystem turnSystem;
+
+    public void Awake()
+    {
+        turnSystem.allPlayersDone.AddListener(DeclareWinner);
+    }
 
     public void Start()
     {
         CreatePlayers(playerCount);
-        turnSystem.ResetTurnOrder();
+        turnSystem.startPos = levelStartPos;
+        turnSystem.GoToNextPlayer();
+
+        
     }
 
     public void CreateAPlayer(int playerNmr)
@@ -24,7 +35,6 @@ public class gameManager : MonoBehaviour
         newPlayer.GetComponent<playerBall>().EventBallStopped.AddListener(turnSystem.GoToNextPlayer);
         newPlayer.GetComponent<playerBall>().stateMachine.ChangeState(new TurnoffState(newPlayer.GetComponent<playerBall>()));
         turnSystem.playerList.Add(newPlayer);
-        newPlayer.transform.position = new Vector3(2 * playerNmr, 2 * playerNmr);
     }
 
     public void CreatePlayers(int playerCount)
@@ -33,5 +43,21 @@ public class gameManager : MonoBehaviour
         {
             CreateAPlayer(i);
         }
+    }
+
+    public void DeclareWinner()
+    {
+        int mostShots = 99;
+        playerBall winner = turnSystem.playerList[0].GetComponent<playerBall>(); //agarro el componente para que debug log no tenga error (antes esta vacio antes)
+        foreach (GameObject i in turnSystem.playerList)
+        {
+            playerBall player = i.GetComponent<playerBall>();
+            if (player.totalShots > mostShots)
+            {
+                mostShots = player.totalShots;
+                winner = player;
+            }
+        }
+        Debug.Log("the winner is" + winner.playerNmr);
     }
 }
