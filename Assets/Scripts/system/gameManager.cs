@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class gameManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class gameManager : MonoBehaviour
 
     [Header("Level Info")]
     public Vector2 levelStartPos;
+    public int levelPar;
+    public int currentLevel;
 
     [Header("Additional Scripts")]
     public turnSystem turnSystem;
@@ -21,11 +24,9 @@ public class gameManager : MonoBehaviour
 
     public void Start()
     {
+        ChangeLevel(1);
         CreatePlayers(playerCount);
-        turnSystem.startPos = levelStartPos;
         turnSystem.GoToNextPlayer();
-
-        
     }
 
     public void CreateAPlayer(int playerNmr)
@@ -59,5 +60,16 @@ public class gameManager : MonoBehaviour
             }
         }
         Debug.Log("the winner is player " + winner.playerNmr +"!");
+    }
+
+    private void ChangeLevel(int levelNmr)
+    {
+        Object prefab;
+        prefab = Resources.Load("levels/level" + levelNmr);
+        levelInfo newLevelInfo = prefab.GetComponent<levelInfo>();
+        Instantiate(prefab, newLevelInfo.instancePos, new Quaternion());
+        turnSystem.startPos = newLevelInfo.startArea.transform.position + newLevelInfo.instancePos;
+        levelPar = newLevelInfo.par;
+        currentLevel = levelNmr;
     }
 }
