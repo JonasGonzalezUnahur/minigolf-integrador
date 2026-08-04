@@ -15,6 +15,7 @@ public class turnSystem : MonoBehaviour
 
     [Header("Events")]
     public UnityEvent allPlayersDone;
+    public UnityEvent<GameObject> nextPlayer;
 
     public void GoToNextPlayer()
     {
@@ -37,6 +38,7 @@ public class turnSystem : MonoBehaviour
             nextPlayer = playerList[currentPlayerTurn - 1].GetComponent<playerBall>();
             if (!nextPlayer.inPlay) { nextPlayer.EnterPlay(startPos); nextPlayer.lastPosition = startPos; }
             nextPlayer.stateMachine.ChangeState(new AimingState(nextPlayer));
+            this.nextPlayer.Invoke(playerList[Mathf.Max(0, currentPlayerTurn - 1)]);
         }
         else
         {

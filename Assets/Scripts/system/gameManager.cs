@@ -16,10 +16,12 @@ public class gameManager : MonoBehaviour
 
     [Header("Additional Scripts")]
     public turnSystem turnSystem;
+    public cameraController cameraController;
 
     public void Awake()
     {
         turnSystem.allPlayersDone.AddListener(DeclareWinner);
+        turnSystem.nextPlayer.AddListener(cameraController.Changetarget);
     }
 
     public void Start()
