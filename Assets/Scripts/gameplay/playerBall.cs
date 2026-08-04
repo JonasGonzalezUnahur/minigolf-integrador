@@ -21,6 +21,7 @@ public class playerBall : MonoBehaviour
 
     [Header("Properties")]
     public float charge = 1;
+    public bool reverseCharge;
     public float basePower = 50;
     public int playerNmr = 0;
 
@@ -84,20 +85,19 @@ public class playerBall : MonoBehaviour
 
     public void ChargeShot()
     {
-        bool reverse = false;
-        if (!reverse)
+        if (!reverseCharge)
         {
-            charge += 1f;
-            if (charge < 1)
+            charge += 0.05f;
+            if (charge > 100)
             {
-                reverse = true;
+                reverseCharge = true;
             }
         } else
         {
-            charge -= 1f;
-            if (charge > 1)
+            charge -= 0.05f;
+            if (charge < 1)
             {
-                reverse = false;
+                reverseCharge = false;
             }
         }
     }
