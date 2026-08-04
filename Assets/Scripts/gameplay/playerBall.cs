@@ -87,14 +87,14 @@ public class playerBall : MonoBehaviour
         bool reverse = false;
         if (!reverse)
         {
-            charge += 0.01f;
+            charge += 1f;
             if (charge < 1)
             {
                 reverse = true;
             }
         } else
         {
-            charge -= 0.01f;
+            charge -= 1f;
             if (charge > 1)
             {
                 reverse = false;
@@ -121,10 +121,4 @@ public class playerBall : MonoBehaviour
         transform.position = new Vector2(startPos.x, startPos.y);
         inPlay = true;
     }
-
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject);
-    }
-
 }

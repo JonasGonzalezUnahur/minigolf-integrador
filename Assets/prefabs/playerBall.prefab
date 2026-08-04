@@ -183,6 +183,9 @@ MonoBehaviour:
   lastPosition: {x: 0, y: 0}
   shots: 0
   totalShots: 0
+  groundOk: 0
+  inPlay: 0
+  finished: 0
   EventBallStopped:
     m_PersistentCalls:
       m_Calls: []
@@ -237,7 +240,7 @@ Rigidbody2D:
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9fbbd7d02ed0e924c92f29dc6787c0aa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
