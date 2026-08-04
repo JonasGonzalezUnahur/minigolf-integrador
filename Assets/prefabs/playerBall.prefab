@@ -178,6 +178,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   charge: 0
+  reverseCharge: 0
   basePower: 20
   playerNmr: 0
   lastPosition: {x: 0, y: 0}
@@ -250,7 +251,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &9087001140802020522
 GameObject:
   m_ObjectHideFlags: 0

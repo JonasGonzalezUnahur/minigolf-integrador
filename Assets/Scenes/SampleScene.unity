@@ -283,7 +283,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 519420031}
   target: {fileID: 0}
-  zoom: 0
+  moveSpeed: 3
+  freeroam: 0
+  inputs: {fileID: -944628639613478452, guid: 887a2adcb89a32848bef1852ca64b8c3, type: 3}
 --- !u!1 &774542692
 GameObject:
   m_ObjectHideFlags: 0
