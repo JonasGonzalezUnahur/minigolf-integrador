@@ -28,6 +28,7 @@ public class playerBall : MonoBehaviour
     public Vector2 lastPosition;
     public int shots = 0;
     public int totalShots = 0;
+    public bool groundOk;
     public bool inPlay = false;
     public bool finished = false;
 
@@ -120,4 +121,10 @@ public class playerBall : MonoBehaviour
         transform.position = new Vector2(startPos.x, startPos.y);
         inPlay = true;
     }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject);
+    }
+
 }

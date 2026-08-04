@@ -25,12 +25,19 @@ public class greenController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        var player = collision.GetComponent<playerBall>();
+        player.groundOk = true;
         float slideAnglex = Mathf.Cos(slideAngle * Mathf.PI / 180);
         float slideAngley = Mathf.Sin(slideAngle * Mathf.PI / 180);
         if (collision.gameObject.CompareTag("Player") && isSlide)
         {
-            var player = collision.GetComponent<playerBall>();
             player.rb2d.AddForce(new Vector2(slideAnglex, slideAngley) * 2);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        var player = collision.GetComponent<playerBall>();
+        player.groundOk = false;
     }
 }

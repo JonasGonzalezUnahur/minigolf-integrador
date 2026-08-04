@@ -35,7 +35,7 @@ public class turnSystem : MonoBehaviour
                 if (i + 1 > playerList.Count) { i = 0; } //evita que la condicion de la iteracion de error
             }
             nextPlayer = playerList[currentPlayerTurn - 1].GetComponent<playerBall>();
-            if (!nextPlayer.inPlay) { nextPlayer.EnterPlay(startPos); }
+            if (!nextPlayer.inPlay) { nextPlayer.EnterPlay(startPos); nextPlayer.lastPosition = startPos; }
             nextPlayer.stateMachine.ChangeState(new AimingState(nextPlayer));
         }
         else

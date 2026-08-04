@@ -58,6 +58,6 @@ public class gameManager : MonoBehaviour
                 winner = player;
             }
         }
-        Debug.Log("the winner is" + winner.playerNmr);
+        Debug.Log("the winner is player " + winner.playerNmr +"!");
     }
 }

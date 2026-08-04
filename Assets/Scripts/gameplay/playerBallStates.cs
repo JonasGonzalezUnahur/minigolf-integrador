@@ -107,7 +107,7 @@ public class FiredState : IState
         if (timer <= 0)
         {
             playerBall.EventBallStopped.Invoke();
-            // if (piso esta bien) { nuevo lastPosition} si no { mover a last position}
+            if (playerBall.groundOk) { playerBall.lastPosition = playerBall.transform.position; } else { playerBall.transform.position = playerBall.lastPosition; }
         }
         
     }
