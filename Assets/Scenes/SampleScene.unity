@@ -361,11 +361,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9a1ea8747e3f047a510f2a106f366c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCount: 1
+  playerCount: 2
   playerPrefab: {fileID: 4202057250438290759, guid: 2663b8b4d8d659a4bb42116bc12ed3c7, type: 3}
   levelStartPos: {x: 0, y: 0}
   levelPar: 0
   currentLevel: 0
+  levelPrefab: {fileID: 0}
   turnSystem: {fileID: 275965885}
   cameraController: {fileID: 519420033}
 --- !u!4 &774542694

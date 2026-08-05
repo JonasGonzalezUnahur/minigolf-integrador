@@ -52,6 +52,7 @@ public class gameManager : MonoBehaviour
     public void DeclareWinner()
     {
         int mostShots = 99;
+        GameObject text = new GameObject("winnertext");
         playerBall winner = turnSystem.playerList[0].GetComponent<playerBall>(); //agarro el componente para que debug log no tenga error (antes esta vacio antes)
         foreach (GameObject i in turnSystem.playerList)
         {
@@ -63,6 +64,13 @@ public class gameManager : MonoBehaviour
             }
         }
         Debug.Log("the winner is player " + winner.playerNmr +"!");
+        var textMesh = text.AddComponent<TextMesh>();
+        textMesh.text = "the winner is player " + winner.playerNmr + "!";
+        textMesh.fontSize = 64;
+        textMesh.characterSize = 0.1f;
+        textMesh.anchor = TextAnchor.LowerCenter;
+        textMesh.alignment = TextAlignment.Center;
+        text.transform.position = cameraController.transform.position;
     }
 
     private void ChangeLevel(int levelNmr)
@@ -84,8 +92,14 @@ public class gameManager : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        Destroy(levelPrefab);
-        ChangeLevel(currentLevel + 1);
-        turnSystem.ResetTurnOrder();
+        if (currentLevel == 2)
+        {
+            DeclareWinner();
+        } else
+        {
+            Destroy(levelPrefab);
+            ChangeLevel(currentLevel + 1);
+            turnSystem.ResetTurnOrder();
+        }
     }
 }
