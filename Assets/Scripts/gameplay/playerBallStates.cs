@@ -106,8 +106,8 @@ public class FiredState : IState
 
         if (timer <= 0)
         {
-            playerBall.EventBallStopped.Invoke();
-            if (!playerBall.finished && playerBall.shots > playerBall.shotsLimit)
+            
+            if (!playerBall.finished && playerBall.shots == playerBall.shotsLimit)
             {
                 playerBall.totalShots += 1;
                 playerBall.Finish();
@@ -119,6 +119,7 @@ public class FiredState : IState
                 playerBall.shots += 1;
                     playerBall.totalShots += 1; 
                 }
+            playerBall.EventBallStopped.Invoke();
         }
         
     }

@@ -45,4 +45,17 @@ public class turnSystem : MonoBehaviour
             allPlayersDone.Invoke();
         }
     }
+
+    public void ResetTurnOrder()
+    {
+        firstTurn = true;
+        currentPlayerTurn = 1;
+        foreach (GameObject i in playerList)
+        {
+            playerBall player = i.GetComponent<playerBall>();
+            player.finished = false;
+            player.inPlay = false;
+        }
+        GoToNextPlayer();
+    }
 }

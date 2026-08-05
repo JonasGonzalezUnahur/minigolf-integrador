@@ -13,6 +13,7 @@ public class gameManager : MonoBehaviour
     public Vector2 levelStartPos;
     public int levelPar;
     public int currentLevel;
+    public Object levelPrefab;
 
     [Header("Additional Scripts")]
     public turnSystem turnSystem;
@@ -20,14 +21,14 @@ public class gameManager : MonoBehaviour
 
     public void Awake()
     {
-        turnSystem.allPlayersDone.AddListener(DeclareWinner);
+        turnSystem.allPlayersDone.AddListener(GoToNextLevel);
         turnSystem.nextPlayer.AddListener(cameraController.Changetarget);
     }
 
     public void Start()
     {
-        ChangeLevel(1);
         CreatePlayers(playerCount);
+        ChangeLevel(1);
         turnSystem.GoToNextPlayer();
     }
 
@@ -66,11 +67,10 @@ public class gameManager : MonoBehaviour
 
     private void ChangeLevel(int levelNmr)
     {
-        Object prefab;
-        prefab = Resources.Load("levels/level" + levelNmr);
+        GameObject prefab = Instantiate(Resources.Load<GameObject>("levels/level" + levelNmr)); ;
         levelInfo newLevelInfo = prefab.GetComponent<levelInfo>();
-        Instantiate(prefab, newLevelInfo.instancePos, new Quaternion());
-        turnSystem.startPos = newLevelInfo.startArea.transform.position + newLevelInfo.instancePos;
+        levelPrefab = prefab;
+        turnSystem.startPos = newLevelInfo.startArea.transform.position;
         levelPar = newLevelInfo.par;
         currentLevel = levelNmr;
         foreach (GameObject i in turnSystem.playerList)
@@ -80,5 +80,12 @@ public class gameManager : MonoBehaviour
             player.shotsLimit = newLevelInfo.par * 2;
             
         }
+    }
+
+    private void GoToNextLevel()
+    {
+        Destroy(levelPrefab);
+        ChangeLevel(currentLevel + 1);
+        turnSystem.ResetTurnOrder();
     }
 }
