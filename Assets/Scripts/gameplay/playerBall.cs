@@ -29,6 +29,7 @@ public class playerBall : MonoBehaviour
     public Vector2 lastPosition;
     public int shots = 0;
     public int totalShots = 0;
+    public int shotsLimit = 0;
     public bool groundOk;
     public bool inPlay = false;
     public bool finished = false;
@@ -102,7 +103,7 @@ public class playerBall : MonoBehaviour
         }
     }
 
-    public void EnterHole()
+    public void Finish()
     {
         if (!finished)
         {

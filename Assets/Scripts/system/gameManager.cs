@@ -73,5 +73,12 @@ public class gameManager : MonoBehaviour
         turnSystem.startPos = newLevelInfo.startArea.transform.position + newLevelInfo.instancePos;
         levelPar = newLevelInfo.par;
         currentLevel = levelNmr;
+        foreach (GameObject i in turnSystem.playerList)
+        {
+            playerBall player = i.GetComponent<playerBall>();
+            player.shots = 0;
+            player.shotsLimit = newLevelInfo.par * 2;
+            
+        }
     }
 }

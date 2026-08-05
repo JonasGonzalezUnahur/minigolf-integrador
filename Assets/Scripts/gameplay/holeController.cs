@@ -9,7 +9,7 @@ public class holeController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && collision.gameObject.activeSelf)
         {
-            collision.GetComponent<playerBall>().EnterHole();
+            collision.GetComponent<playerBall>().Finish();
         }
     }
 }

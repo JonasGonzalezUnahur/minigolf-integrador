@@ -107,7 +107,18 @@ public class FiredState : IState
         if (timer <= 0)
         {
             playerBall.EventBallStopped.Invoke();
-            if (playerBall.groundOk) { playerBall.lastPosition = playerBall.transform.position; } else { playerBall.transform.position = playerBall.lastPosition; }
+            if (!playerBall.finished && playerBall.shots > playerBall.shotsLimit)
+            {
+                playerBall.totalShots += 1;
+                playerBall.Finish();
+            }
+            if (playerBall.groundOk) {
+                playerBall.lastPosition = playerBall.transform.position; }
+            else { 
+                playerBall.transform.position = playerBall.lastPosition;
+                playerBall.shots += 1;
+                    playerBall.totalShots += 1; 
+                }
         }
         
     }
